@@ -17,16 +17,26 @@ import com.java.utils.UserExceptions.QueueEmptyException;
 public class Queue<Item> implements Iterable<Item> {
 
   private Item[] s;
-  public int First = 0, Last = 0, Capacity = 2;
+  public int First = 0, Last = 0, Capacity = 0;
   private int itemCount = 0;
   private Item item;
+  private static int DEFAULT_CAPACITY=10;
 
-  /**
-   * Default constructor initializes a queue with default capacity size.
-   */
+/**
+ * Default constructor initializes a queue with default capacity size.
+ */
+  public Queue(){
+	  this(DEFAULT_CAPACITY);
+  }
+  
+/**
+ * constructor initialises a queue with capacity size passed as argument.
+ * @param cap
+ */
   @SuppressWarnings({ "unchecked" })
-  public Queue() {
-    s = (Item[]) new Object[Capacity];
+  public Queue(int cap) {
+    s = (Item[]) new Object[cap];
+    Capacity=cap;
   }
 
   /**
@@ -93,7 +103,7 @@ public class Queue<Item> implements Iterable<Item> {
   }
 
   /**
-   * Takes integer argument newCapacity as input. Resizes the array to new capacity. Creates a new
+   * Takes integer argument newCapacity as input. Resizes the Queue to new capacity. Creates a new
    * array of newCapacity size and copies items to new array. Returns the new array with reference
    * to old array pointing to new one
    * @param int
@@ -158,12 +168,13 @@ public class Queue<Item> implements Iterable<Item> {
      */
     @Override
     public Item next() {
-      items = s[i];
-      if (i == Capacity && Last < First) {
+    	items = s[i];
+    if (i == Capacity-1 && Last < First) {
         i = 0;
       } else {
         i++;
       }
+      
       return items;
     }
 
