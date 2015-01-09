@@ -2,13 +2,12 @@ package com.java.utils.sorts;
 
 import com.java.utils.SortUtils;
 
-public class SelectionSort extends SortUtils implements Sort {
+public class SelectionSort extends SortUtils {
   public static int DEFAULT_SIZE = 10;
 
   /**
-   * Function override for default method sort declared in Sort interface
+   * Static Function to implement Selection sort. It sorts the array passed as argument in place.
    */
-  @Override
   @SuppressWarnings({ "rawtypes" })
   public void sort(Comparable[] array) {
     int N = array.length;

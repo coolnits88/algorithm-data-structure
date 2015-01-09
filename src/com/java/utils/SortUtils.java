@@ -8,7 +8,6 @@ public class SortUtils {
    */
   @SuppressWarnings({ "rawtypes", "unchecked" })
   public static boolean isLess(Comparable v, Comparable w) {
-
     return v.compareTo(w) < 0;
   }
 
