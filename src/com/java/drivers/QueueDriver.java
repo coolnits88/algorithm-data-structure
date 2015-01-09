@@ -2,7 +2,6 @@ package com.java.drivers;
 
 import com.java.utils.UserExceptions.InvalidFunctionCallException;
 import com.java.utils.ds.LinkedQueue;
-import com.java.utils.ds.Queue;
 
 public class QueueDriver {
 
@@ -11,10 +10,8 @@ public class QueueDriver {
   }
 
   public static void main(String[] args) throws Exception {
-    //Queue<Integer> s = new Queue<Integer>();
+    // Queue<Integer> s = new Queue<Integer>();
     LinkedQueue<Integer> s = new LinkedQueue<Integer>();
-
-
 
     s.enqueue(1);
     s.enqueue(2);
@@ -24,11 +21,11 @@ public class QueueDriver {
     System.out.println(s.dequeue());
     s.enqueue(5);
     s.enqueue(6);
-    
+
     for (int si : s) {
       System.out.println("Iterator1: " + si);
     }
-    
+
     s.enqueue(7);
     s.enqueue(8);
     s.enqueue(9);
@@ -40,7 +37,7 @@ public class QueueDriver {
     s.enqueue(12);
     s.enqueue(13);
     s.enqueue(14);
-     // System.out.println(s.dequeue());
+    // System.out.println(s.dequeue());
     // System.out.println(s.dequeue());
     // System.out.println(s.dequeue());
     // System.out.println(s.dequeue());
