@@ -2,8 +2,8 @@ package com.java.utils.ds;
 
 import java.util.Iterator;
 
-import com.java.utils.UserExceptions.InavalidIndexException;
 import com.java.utils.UserExceptions.InvalidFunctionCallException;
+import com.java.utils.UserExceptions.InvalidIndexException;
 
 /**
  * Generic implementation of single link. Provides functionality of adding item at end and at given
@@ -85,7 +85,7 @@ public class SingleLinkedList<Item> implements Iterable<Item> {
 
     if (index < 1) {
       node = null;
-      throw new InavalidIndexException("Invalid Index " + index + " passed as argument");
+      throw new InvalidIndexException("Invalid Index " + index + " passed as argument");
     }
     if (index >= size()) {
       tail.next = node;
@@ -111,11 +111,11 @@ public class SingleLinkedList<Item> implements Iterable<Item> {
    * @param index
    * @throws InavalidIndexException
    */
-  public boolean remove(int index) throws InavalidIndexException {
+  public boolean remove(int index) throws InvalidIndexException {
     Node<Item> oldtmp;
     int i;
     if (index < 1 || index > size()) {
-      throw new InavalidIndexException("Invalid Index " + index + " passed as argument");
+      throw new InvalidIndexException("Invalid Index " + index + " passed as argument");
     }
 
     tmp = oldtmp = head;

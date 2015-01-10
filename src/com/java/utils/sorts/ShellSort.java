@@ -3,12 +3,11 @@ package com.java.utils.sorts;
 import com.java.utils.SortUtils;
 
 public class ShellSort extends SortUtils {
-  int N, h = 1;
 
   @SuppressWarnings("rawtypes")
-  public void sort(Comparable[] a) {
+  public static void sort(Comparable[] a) {
     // TODO Auto-generated method stub
-    N = a.length;
+    int h = 0, N = a.length;
 
     while (h < N / 3)
       h = 3 * h + 1;

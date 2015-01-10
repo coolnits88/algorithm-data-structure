@@ -1,7 +1,9 @@
 package com.java.drivers;
 
+import java.util.Random;
+
 import com.java.utils.SortUtils;
-import com.java.utils.sorts.ShellSort;
+import com.java.utils.sorts.BottomUpMergeSort;
 
 public class SortDriver extends SortUtils {
 
@@ -10,39 +12,33 @@ public class SortDriver extends SortUtils {
   }
 
   public static void main(String[] args) {
-    // SelectionSort s = new SelectionSort();
-    // InsertionSort s = new InsertionSort();
-    ShellSort s = new ShellSort();
 
-    int i = 0;
-
-    Double[] a = new Double[20];
-    // Generate random doubles and populate array
-    for (i = 0; i < a.length; i++) {
-      a[i] = Math.random();
+    // String[] as = { "a", "f", "as", "sd", "b", "tr", "ew", "be", "e" };
+    int LIM = 10000000;
+    Double[] as = new Double[LIM];
+    Random rand = new Random();
+    for (int i = 0; i < LIM; i++) {
+      as[i] = rand.nextDouble();
     }
-    String[] as = { "a", "f", "as", "sd", "b", "tr", "ew", "be", "e" };
-
-    System.out.println("Array Sorted before sort : " + isSorted(a));
-    // Sort items
-    s.sort(a);
-    System.out.println("Array Sorted after sort : " + isSorted(a));
 
     System.out.println("Array Sorted before sort : " + isSorted(as));
+
     // Sort items
-    s.sort(as);
+    long st = System.currentTimeMillis();
+    BottomUpMergeSort.sort(as);
+    // MergeSort.sort(as);
+    // SelectionSort.sort(as);
+    // InsertionSort.sort(as);
+    // ShellSort.sort(as);
+    long duration = System.currentTimeMillis() - st;
+    System.out.println("Run time:" + duration);
     System.out.println("Array Sorted after sort : " + isSorted(as));
 
     // print data
-    System.out.println("After Sort:");
-    for (double j : a) {
-      System.out.println("Item: " + j);
-    }
-    // print data
-    System.out.println("After Sort:");
-    for (String j : as) {
-      System.out.println("Item: " + j);
-    }
+    // System.out.println("After Sort:");
+    // for (String j : as) {
+    // System.out.println("Item: " + j);
+    // }
 
   }
 }
