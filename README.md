@@ -1,14 +1,16 @@
 # algorithm-data-structure
 Code contains implementations for data structures like stack queue and sort algorithms
 
-## Structures Implemented
+## Algorithms Implemented
 
+### Data Structures
 * Stack
 * LinkedStack
 * Queue
 * LinkedQueue
 * Single Linked List
 
+### Sorts
 * SelectionSort
 * InsertionSort
 * MergeSort
