@@ -10,12 +10,12 @@ import com.java.utils.sorts.QuickSort;
  * provides Comparable performance. shuffles the array before sort to guarantee performance benefit
  * even in case of reverse sorted array (worst case). iSort() method takes the lowest time and does
  * not uses any extra space as well (Sorts array in place) but with the caveat that the run time
- * will be Quadratic in worst case (Reverse sorted array). Test machine for running tests <Machine>
- * MacBook Pro Ram: 4 GB 1600 MHz DDR3 Processor: 2.5 GHz Intel Core i5 <Machine> All stats are in
- * Milliseconds
+ * will be Quadratic in worst case (Reverse sorted array). Also implements quick select algorithm
+ * with method select()Test machine for running tests <Machine> MacBook Pro Ram: 4 GB 1600 MHz DDR3
+ * Processor: 2.5 GHz Intel Core i5 <Machine> All stats are in Milliseconds
  * @author nitin
  */
-public class SortDriver extends SortUtils {
+public class SortDriver {
 
   public SortDriver() {
     // TODO Auto-generated constructor stub
@@ -23,16 +23,16 @@ public class SortDriver extends SortUtils {
 
   public static void main(String[] args) {
 
-    int LIM = 10000000; // Change value to increase items in array
+    int LIM = 1000000; // Change value to increase items in array
 
     /*
      * Array initialization for best case testing. Initialized to sorted
      */
 
-    // Integer[] as = new Integer[LIM];
-    // for (int i = 0; i < LIM; i++) {
-    // as[i] = (LIM - i);
-    // }
+    Integer[] as = new Integer[LIM];
+    for (int i = 0; i < LIM; i++) {
+      as[i] = i;
+    }
 
     /*
      * Random array initialization for normal case testing
@@ -42,21 +42,30 @@ public class SortDriver extends SortUtils {
     // for (int i = 0; i < LIM; i++)
     // as[i] = rand.nextDouble();
 
+    // Integer[] as = new Integer[LIM];
+    // Random rand = new Random();
+    // for (int i = 0; i < LIM; i++) {
+    // as[i] = rand.nextInt(LIM / 100);
+    // }
     /*
      * Array initialization for worst case testing. Initialized to reverse sorted
      */
-    Integer[] as = new Integer[LIM];
-    for (int i = 0; i < LIM; i++) {
-      as[i] = (LIM - i);
-    }
+    // Integer[] as = new Integer[LIM];
+    // for (int i = 0; i < LIM; i++) {
+    // as[i] = (LIM - i);
+    // }
 
-    System.out.println("Array Sorted before sort : " + isSorted(as));
+    System.out.println("Array Sorted before sort : " + SortUtils.isSorted(as));
 
     // Sort items
     long st = System.currentTimeMillis();
     // BottomUpMergeSort.sort(as);
     // MergeSort.sort(as);
-    QuickSort.sort(as);
+    // QuickSort.sort(as);
+    // QuickSort.sortDuplicateKeysArray(as);
+    // System.out.println("Default select " + QuickSort.select(as));
+    // System.out.println("Selected 10th largest: " + QuickSort.select(as, 98475));
+    System.out.println("Selected 10th largest: " + QuickSort.select(as, 9));
     // QuickSort.iSort(as);
     // SelectionSort.sort(as);
     // InsertionSort.sort(as);
@@ -64,7 +73,7 @@ public class SortDriver extends SortUtils {
 
     long duration = System.currentTimeMillis() - st;
     System.out.println("Run time:" + duration);
-    System.out.println("Array Sorted after sort : " + isSorted(as));
+    System.out.println("Array Sorted after sort : " + SortUtils.isSorted(as));
 
     // print data
     // System.out.println("After Sort:");
