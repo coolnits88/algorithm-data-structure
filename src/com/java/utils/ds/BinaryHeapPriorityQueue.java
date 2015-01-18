@@ -61,6 +61,7 @@ public class BinaryHeapPriorityQueue<Key extends Comparable<Key>> {
 
   }
 
+  @SuppressWarnings("unchecked")
   private void resize(int newCap) {
 
     Key[] clonepq = (Key[]) new Comparable[newCap];
